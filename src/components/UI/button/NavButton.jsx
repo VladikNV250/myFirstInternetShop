@@ -1,11 +1,9 @@
 import React from 'react';
 import {cl} from './NavButton.module.css'
  
-const NavButton = (props) => {
+const NavButton = ({name, onClick}) => {
   return (
-    <div>
- 
-    </div>
+    <button onClick={onClick}>{name}</button>
   )
 }
  

@@ -1,0 +1,11 @@
+.inner__navbar_1 {
+    background-color: #4cb1ca;
+    height: 50px;
+    display: flex;
+}
+
+.inner__navbar_2 {
+    height: 100px;
+    display: flex;
+    border-bottom: 3px solid #4cb1ca;
+}

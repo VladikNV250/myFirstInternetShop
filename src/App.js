@@ -1,34 +1,40 @@
 import { useState } from 'react';
 import './css/App.css';
-import FAButton from './UI/button/FAButton';
-import NavButton from './UI/button/NavButton';
-import NavList from './UI/list/NavList';
-import NavSelect from './UI/select/NavSelect';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import { image } from './images/image';
+import SideBar from './components/SideBar';
+import GoodsList from './components/GoodsList';
+
 
 function App() {
-  const [cartCount, setCartCount] = useState(0)
+  const [goods, setGoods] = useState([
+    { title: 'окуляри', price: '400', img: image.glasses },
+    { title: 'окуляри1', price: '500', img: image.glasses },
+    { title: 'окуляри2', price: '250', img: image.glasses },
+
+  ])
 
   return (
     <div className="App">
-      <nav>
-        <div className='inner__navbar_1'>
-          <NavSelect /> {/* language */}
-          <NavSelect /> {/* currency select */}
-          <NavButton name="Account" />
-          <NavButton name="Wishlist" />
-          <NavButton name="Checkout" />
-          <NavButton name="Log In" />
-          <NavButton name="Sign Up" />
-        </div>
-{/* ---------------------------------- */}
-        <div className='inner__navbar_2'>
-          <h1>LEO SHOP</h1>
-          <NavList />
-          <Search />
-          <FAButton /> {/* cart */}
-          <h5>CART ({cartCount})</h5>
-        </div>
-      </nav>
+      <Navbar />
+      <Hero img={image.hero1} />
+      <SideBar />
+      <GoodsList 
+        title="Улюблені товари"
+        goods={goods}
+      />
+      <GoodsList 
+        title="Рекомендовано"
+        goods={goods}
+      />
+      <GoodsList 
+        title="Нові товари"
+        goods={goods}
+      />
+      <footer>
+        
+      </footer>
     </div>
   );
 }
