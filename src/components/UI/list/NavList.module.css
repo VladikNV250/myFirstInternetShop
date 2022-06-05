@@ -1,0 +1,12 @@
+.navList {
+    list-style: none;
+    display: flex;
+}
+
+.navList li {
+    margin: 0 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.95em;
+    color: #656565;
+}

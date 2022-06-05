@@ -1,9 +1,9 @@
 import React from 'react';
-import {cl} from './NavButton.module.css'
+import cl from './NavButton.module.css'
  
 const NavButton = ({name, onClick}) => {
   return (
-    <button onClick={onClick}>{name}</button>
+    <button className={cl.navButton} onClick={onClick}>{name}</button>
   )
 }
  

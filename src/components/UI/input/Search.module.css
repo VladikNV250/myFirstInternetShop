@@ -1,0 +1,23 @@
+.search {
+    display: inline-block;
+    border: 1px solid #c6c6c6;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    width: 190px;
+
+}
+
+.search input {
+    border: none;
+    outline: none;
+    width: 90%;
+    font-size: 0.9em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

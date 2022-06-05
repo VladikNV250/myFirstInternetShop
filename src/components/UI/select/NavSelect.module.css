@@ -1,0 +1,38 @@
+
+.navSelect {
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9em;
+    font-weight: 400;
+    color: #fff;
+    margin: 0 10px;
+}
+
+.navSelect select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    padding: 0 5px;
+}
+
+.navSelect option {
+    background-color: #3e9db4;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.navSelect h5 {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    margin: 0 5px 0 0;
+    color: #bff2ff;
+}

@@ -4,12 +4,12 @@ import NavButton from './UI/button/NavButton';
  
 const ButtonList = () => {
   return (
-    <div>
-        <NavButton name="Account" />
-        <NavButton name="Wishlist" />
-        <NavButton name="Checkout" />
-        <NavButton name="Log In" />
-        <NavButton name="Sign Up" />
+    <div style={{color: '#fff'}}>
+        <NavButton name="Account" /> |
+        <NavButton name="Wishlist" /> |
+        <NavButton name="Checkout" /> |
+        <NavButton name="Log In" /> |
+        <NavButton name="Sign Up" /> 
     </div>
   )
 }

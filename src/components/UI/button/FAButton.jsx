@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const FAButton = ({icon, color}) => {
 
   return (
-    <button style={{background: color}}><FontAwesomeIcon icon={icon} /></button>
+    <button className={cl.faButton} style={{background: color}}><FontAwesomeIcon icon={icon} /></button>
   )
 }
  

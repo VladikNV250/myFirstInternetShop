@@ -2,10 +2,27 @@
     background-color: #4cb1ca;
     height: 50px;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .inner__navbar_2 {
     height: 100px;
     display: flex;
-    border-bottom: 3px solid #4cb1ca;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navbar__h1 {
+    color: #656565;
+    font-family: "Open Sans", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.navbar__h5 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.95em;
+    color: #656565;
 }

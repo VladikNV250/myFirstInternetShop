@@ -1,11 +1,13 @@
 import React from 'react';
-import {cl} from './NavList.module.css'
+import cl from './NavList.module.css'
  
-const NavList = (props) => {
+const NavList = ({list}) => {
   return (
-    <div>
-        
-    </div>
+    <ul className={cl.navList}>
+      {list.map((name,index) => 
+        <li key={index}>{name}</li>
+      )}
+    </ul>
   )
 }
 export default NavList;
