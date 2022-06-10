@@ -1,8 +1,22 @@
 .goods__list {
     width: 750px;
+    margin: 0 auto 0 200px;
 }
 
 .goods__list ul {
     display: grid;
     grid-template-columns: auto auto auto;
+    grid-column-gap: 30px;
+    grid-template-rows: repeat(auto-fill, auto);
+    grid-row-gap: 30px;
+}
+
+.goods__list h1 {
+    margin: 15px 25px ; 
+    color: #635f57;
+    font-family: "Open Sans";
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.24px;
 }
