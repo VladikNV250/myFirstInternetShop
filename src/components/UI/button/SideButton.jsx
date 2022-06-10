@@ -1,9 +1,9 @@
 import React from 'react';
-import {cl} from './SideButton.module.css'
+import cl from './SideButton.module.css'
  
-const SideButton = ({children}) => {
+const SideButton = ({children,style}) => {
   return (
-    <button>{children}</button>
+    <button className={cl.sideBtn} style={style}>{children}</button>
   )
 }
  

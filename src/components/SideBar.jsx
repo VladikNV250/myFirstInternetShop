@@ -2,22 +2,29 @@ import React from 'react';
 import '../css/SideBar.css';
 import { image } from '../images/image';
 import SideButton from './UI/button/SideButton';
+import SideInput from './UI/input/SideInput';
+import SidePagination from './UI/pagination/SidePagination';
  
 const SideBar = () => {
   return (
-    <aside style={{float: 'right'}}>
-        <section>
-          <h3>Featured Glass</h3>
-          <div style={{width: "230px", height: '390px'}}>
-              <img src={image.asimg} alt="nema" style={{width: "100%", height: "100%"}}/>
-              <SideButton>cheked out</SideButton>
+    <aside className='sidebar' >
+        <section className='sidebar__content'>
+          <div className='sidebar__hero'>
+            <h3>Featured Glass</h3>
+              <img src={image.asimg} alt="nema" className='sidebar__img'/>
+              <div className='sidebar__btn'>
+                <SideButton style={{background: '#4cb1ca'}} >Check it Out</SideButton>
+              </div>
           </div>
+          <SidePagination />
         </section>
 
-        <form>
-            <h3>Newsletters signup</h3>
+        <form className='sidebar__form'>
+            <h3>Newsletters <span style={{marginLeft: '30px'}}>signup</span></h3>
             <p>Lorem ipsum dolor sit amen, dolor imun ra adlip ulissys</p>
-            <SideButton>Subscribe</SideButton>
+            <hr />
+            <SideInput type='email' placeholder='example@gmail.com' />
+              <SideButton style={{background: '#7eb123', margin: '20px 60px'}} >Subscribe</SideButton>
         </form>
     </aside>
   )

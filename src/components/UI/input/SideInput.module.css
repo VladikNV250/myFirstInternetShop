@@ -1,0 +1,9 @@
+.sideInput {
+    appearance: none;
+    outline: none;
+    width: 185px;
+    height: 29px;
+    border: 1px solid rgba(198, 198, 198, 0.5);
+    background-color: #ffffff;
+    margin: 15px 23px;
+}

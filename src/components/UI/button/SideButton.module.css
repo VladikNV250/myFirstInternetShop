@@ -1,0 +1,17 @@
+.sideBtn {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: max-content;
+    padding: 15px 24px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 1s;
+}
+
+.sideBtn:hover {
+    cursor: pointer;
+    background-color: #bbb !important;
+}

@@ -1,0 +1,26 @@
+.pagination {
+    box-shadow: 0 0 5px #eaeaea;
+    width: inherit;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.round {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #7db122;
+    margin: 0 5px;
+}
+
+.active {
+    background-color: #4cb1ca;
+}
+
+.round:hover {
+    cursor: pointer;
+}
