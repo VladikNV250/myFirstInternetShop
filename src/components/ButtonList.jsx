@@ -7,7 +7,6 @@ const ButtonList = () => {
     <div style={{color: '#fff'}}>
         <NavButton name="Account" /> |
         <NavButton name="Wishlist" /> |
-        <NavButton name="Checkout" /> |
         <NavButton name="Log In" /> |
         <NavButton name="Sign Up" /> 
     </div>

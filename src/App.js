@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Hero img={image.hero1} />
+      <Hero />
       <SideBar />
         <GoodsList 
           title="Улюблені товари"
@@ -45,3 +45,4 @@ function App() {
 }
 
 export default App;
+
