@@ -1,9 +1,9 @@
 import React from 'react';
 import cl from './SideButton.module.css'
  
-const SideButton = ({children,style}) => {
+const SideButton = ({onClick,children,style}) => {
   return (
-    <button className={cl.sideBtn} style={style}>{children}</button>
+    <button onClick={e => onClick(e)} className={cl.sideBtn} style={style}>{children}</button>
   )
 }
  

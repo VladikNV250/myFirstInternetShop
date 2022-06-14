@@ -6,11 +6,12 @@ import NavSelect from './UI/select/NavSelect';
 import ButtonList from './ButtonList';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import '../css/Navbar.css';
+import ModalWindow from "./UI/modal/ModalWindow";
+import CartList from "./CartList";
 
-const Navbar = () => {
-    const [cartCount, setCartCount] = useState(0)
+const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, cart, setCart}) => { // a lot of props, think how to solve it
     const [language, setLanguage] = useState('en');
-    const [currency, setCurrency] = useState('USD')
+    const [visible, setVisible] = useState(false);
 
     return (
         <header>
@@ -28,8 +29,8 @@ const Navbar = () => {
                 /> 
                 <NavSelect
                     name="Currency:" 
-                    value={currency} 
-                    onChange={setCurrency} 
+                    value={currentCurrency} 
+                    onChange={currency => setCurrentCurrency(currency)} 
                     options={[
                     {value: 'USD', name: 'USD'},
                     {value: 'GRN', name: 'GRN'},
@@ -52,10 +53,13 @@ const Navbar = () => {
                 </div>
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                   <Search />
-                  <FAButton icon={faCartShopping} color='#7db122' /> {/* cart */}
+                  <FAButton icon={faCartShopping} color='#7db122' onClick={e => setVisible(true)} /> {/* cart */}
                   <h5 className="navbar__h5">CART ({cartCount})</h5>
                 </div>
             </nav>
+            <ModalWindow visible={visible} setVisible={setVisible} >
+                    <CartList cart={cart} setCart={setCart} setVisible={setVisible} setCartCount={setCartCount}/>
+            </ModalWindow>
       </header>
     )
 }

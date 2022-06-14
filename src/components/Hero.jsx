@@ -35,26 +35,20 @@ const Hero = () => {
     console.log(`translate at this moment: ${translate}`)
   }
 
-//   function test() {
-//     setTimeout(() => {
-//       if(translate == -((background.length - 1) * 100)) {
-//         setTranslate(0);
-//         return;
-//       } else {
-//         setTranslate(translate - 100)
-//       }
-//       console.log(`translate at this moment: ${translate}`)
-//       test()
-//     }, 5000)
-//   }
+// function test() {
+//   setTimeout(() => {
+//     changeBackground('right')
+//     test()
+//   }, 5000)
+// }
 
 // test()
 
   return (
     <section className='hero__section' style={{width: background.length * 100 + 'vw'}}>
         <ul className='inner__hero' style={{transform: `translate3d(${translate + 'vw'}, 0, 0)`}}>
-          {background.map(img => 
-            <HeroBackground img={img} />
+          {background.map((img, index) => 
+            <HeroBackground key={index} img={img} />
           )}
         </ul>
           <div className='hero__btn'>

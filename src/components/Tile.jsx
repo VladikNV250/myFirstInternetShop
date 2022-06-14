@@ -3,7 +3,7 @@ import '../css/Tile.css';
 import FAButton from './UI/button/FAButton';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
  
-const Tile = ({title, price, img, currency}) => {
+const Tile = ({title, price, img, currency, add}) => {
   let curentCurrency = '$'
 
   switch(currency) {
@@ -14,6 +14,14 @@ const Tile = ({title, price, img, currency}) => {
     case 'EUR': curentCurrency = '€' ; break
   }
 
+  function createGoods() {
+    const newGoods = {
+      title: title,
+      price: price,
+      img: img,
+    }
+    add(newGoods);
+  }
 
   return (
     <li className='tile'>
@@ -26,8 +34,11 @@ const Tile = ({title, price, img, currency}) => {
               <h3 className='tile__name'>{title}</h3>
               <h3 className='tile__price'>{price} {curentCurrency}</h3>
             </div>
-            <a className='tile__btn'>
-              <FAButton icon={faBasketShopping} color="#7db122" />
+            <a className='tile__btn' onClick={createGoods} >
+              <FAButton 
+                icon={faBasketShopping} 
+                color="#7db122" 
+              />
             </a>
           </div>
         </article>

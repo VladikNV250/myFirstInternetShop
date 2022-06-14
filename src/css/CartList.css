@@ -1,0 +1,27 @@
+.cartList {
+    max-height: 80vh;
+    max-width: 80vw;
+    min-height: 30vh;
+    min-width: 30vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    list-style: none;
+    padding: 0;
+}
+
+.cartList h1 {
+    font-size: 36px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 2px solid #4cb1ca;
+}
+
+.cart__footer {
+    position: sticky;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 0;
+    bottom: 0;
+}

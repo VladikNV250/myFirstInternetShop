@@ -1,0 +1,36 @@
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Taken from Stackoverflow */
+}
+
+.goodsCount {
+    display: flex;
+}
+
+.goodsCount__btn {
+    color: #4cb1ca;
+    font-size: 36px;
+    appearance: none;
+    background: none;
+    outline: 0;
+    border: 0;
+}
+
+.goodsCount__btn:hover {
+    cursor: pointer;
+    color: #4398ad;
+}
+
+.goodsCount__input {
+    appearance: none;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #c6c6c6;
+    border-radius: 10px;
+    font-size: 24px;
+    outline: 0;
+    background: 0;
+    text-align: center;
+}
