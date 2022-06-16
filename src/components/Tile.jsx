@@ -3,7 +3,7 @@ import '../css/Tile.css';
 import FAButton from './UI/button/FAButton';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
  
-const Tile = ({title, price, img, currency, add}) => {
+const Tile = ({title, price, img, id, currency, add}) => {
   let curentCurrency = '$'
 
   switch(currency) {
@@ -19,6 +19,7 @@ const Tile = ({title, price, img, currency, add}) => {
       title: title,
       price: price,
       img: img,
+      id: id,
     }
     add(newGoods);
   }

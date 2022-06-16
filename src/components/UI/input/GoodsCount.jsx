@@ -4,8 +4,8 @@ import React from 'react';
 import cl from './GoodsCount.module.css'
 import { useState } from 'react';
  
-const GoodsCount = (props) => {
-  const [value, setValue] = useState(0)
+const GoodsCount = ({value, setValue, ...props}) => {
+
 
   function increment() {
     setValue(value + 1)

@@ -9,7 +9,7 @@ import '../css/Navbar.css';
 import ModalWindow from "./UI/modal/ModalWindow";
 import CartList from "./CartList";
 
-const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, cart, setCart}) => { // a lot of props, think how to solve it
+const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, cart, setCart, remove, add, multiplierCurrency}) => { // a lot of props, think how to solve it
     const [language, setLanguage] = useState('en');
     const [visible, setVisible] = useState(false);
 
@@ -58,7 +58,17 @@ const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, c
                 </div>
             </nav>
             <ModalWindow visible={visible} setVisible={setVisible} >
-                    <CartList cart={cart} setCart={setCart} setVisible={setVisible} setCartCount={setCartCount}/>
+                    <CartList 
+                      cart={cart} 
+                      setCart={setCart} 
+                      setVisible={setVisible}
+                      cartCount={cartCount} 
+                      setCartCount={setCartCount} 
+                      remove={remove}
+                      add={add}
+                      multiplierCurrency={multiplierCurrency}
+                      currency={currentCurrency}
+                    />
             </ModalWindow>
       </header>
     )

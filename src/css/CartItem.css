@@ -28,11 +28,17 @@
                    max-height: 210px;
                }
            
-           .cartItem__name {
+           .cartItem__body {
                display: flex;
                justify-content: space-between;
                align-items: flex-end;
            }
+
+           .cartItem__name {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
    
            .cartItem__title {
                color: #464148;

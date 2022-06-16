@@ -3,7 +3,7 @@ import '../css/CartList.css'
 import CardItem from './CartItem';
 import SideButton from './UI/button/SideButton';
  
-const CartList = ({cart, setCart, setVisible, setCartCount}) => {
+const CartList = ({cart, setCart, setVisible, cartCount, setCartCount, remove, currency, add, multiplierCurrency}) => {
 
   function clearCart(e) {
     e.preventDefault()
@@ -14,11 +14,14 @@ const CartList = ({cart, setCart, setVisible, setCartCount}) => {
 
   return (
     <ul className='cartList'>
-      <h1>Кошик</h1>
+      <div className='cart__header'>
+        <h1>Кошик ({cartCount})</h1>
+      </div>
+      
         { cart.length
         ? 
           cart.map(goods => 
-            <CardItem goods={goods} />
+            <CardItem goods={goods} remove={remove} add={add} currency={currency} multiplierCurrency={multiplierCurrency} />
           ) 
         : 
           <h1>Ви не додали товар у кошик</h1>

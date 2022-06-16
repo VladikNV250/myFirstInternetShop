@@ -9,11 +9,17 @@
     padding: 0;
 }
 
-.cartList h1 {
-    font-size: 36px;
+.cart__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #4cb1ca;
+}
+
+.cart__header h1 {
+    font-size: 30px;
     font-weight: 400;
     font-family: 'Open Sans', sans-serif;
-    border-bottom: 2px solid #4cb1ca;
+    margin: 0 15px 15px 15px;
 }
 
 .cart__footer {
