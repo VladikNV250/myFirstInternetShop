@@ -4,32 +4,29 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import { image } from './images/image';
 import SideBar from './components/SideBar';
-import GoodsList from './components/GoodsList';
+import ProductList from './components/ProductList';
 import _ from 'lodash';
 
 
 function App() {
-  const [goods, setGoods] = useState([
-    { title: 'окуляри зручні lorem ipsum для дітей asdasda dasdads adad asda dsad',  price: 400.00, img: image.glasses, id: 1 },
-    { title: 'окуляри1', price: 500.00, img: image.glasses, id: 2 },
-    { title: 'окуляри2', price: 250.20, img: image.glasses, id: 3 },
-  ])
-  const [currentCurrency, setCurrentCurrency] = useState('USD')
+  const [currentCurrency, setCurrentCurrency] = useState('USD');
   const [cart, setCart] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
-  const [wishList, setWishList] = useState([])
+  const [wishList, setWishList] = useState([]);
+  const [products, setProducts] = useState([
+    { title: 'окуляри зручні lorem ipsum для дітей asdasda dasdads adad asda dsad',  price: 72, img: image.glasses.gl_1, id: 1, },
+    { title: 'окуляри1', price: 50, img: image.glasses.gl_2, id: 2, },
+    { title: 'окуляри2', price: 150, img: image.glasses.gl_3, id: 3, },
+  ]);
 
-  const multiplierCurrency = {
-    'USD': 1,
-    'GRN': 29.76,
-    'GBP': 0.81,
-    'PLN': 4.38,
-    'EUR': 0.95,
-  }
+  function addToCart(product) {
+    
+    function isInCart(product) {
+      return _.findIndex(cart, function(currentProduct) {return currentProduct.id == product.id; }) == -1
+    }
 
-  function addToCart(goods) {
-    setCart([...cart, goods])
-    setCartCount(cartCount + 1)
+    if(isInCart(product)) {
+      setCart([...cart, product])
+    }
   }
 
   function addToWishList(product) {
@@ -38,7 +35,6 @@ function App() {
 
   function removeFromCart(goods) {
       setCart(cart.filter(product => product.id !== goods.id))
-      setCartCount(cartCount - 1)
   }
 
   return (
@@ -46,34 +42,28 @@ function App() {
       <Navbar 
         currentCurrency={currentCurrency} 
         setCurrentCurrency={setCurrentCurrency} 
-        setCartCount={setCartCount} 
-        cartCount={cartCount}
         cart={cart}
         setCart={setCart} 
         remove={removeFromCart}
         add={addToWishList}
-        multiplierCurrency={multiplierCurrency[currentCurrency]}
       />
       <Hero />
       <SideBar />
-        <GoodsList 
+        <ProductList 
           title="Пропоновані товари"
-          goods={goods}
-          multiplierCurrency={multiplierCurrency[currentCurrency]}
+          products={products}
           currency={currentCurrency}
           add={addToCart}
         />
-        <GoodsList 
+        <ProductList 
           title="Улюблені товари"
-          goods={wishList}
-          multiplierCurrency={multiplierCurrency[currentCurrency]}
+          products={wishList}
           currency={currentCurrency}
           add={addToCart}
         />
-        <GoodsList 
+        <ProductList 
           title="Нові товари"
-          goods={goods}
-          multiplierCurrency={multiplierCurrency[currentCurrency]}
+          products={products}
           currency={currentCurrency}
           add={addToCart}
         />

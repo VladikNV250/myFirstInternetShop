@@ -2,43 +2,37 @@ import React from 'react';
 import '../css/Tile.css';
 import FAButton from './UI/button/FAButton';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
+import { multiplierCurrency } from '../currency/multiplierCurrency';
+import { switchCurrency } from '../currency/currency';
  
-const Tile = ({title, price, img, id, currency, add}) => {
-  let curentCurrency = '$'
+const Tile = ({product, currency, add}) => {
+  let curentCurrency = switchCurrency(currency)
 
-  switch(currency) {
-    case 'USD': curentCurrency = '$' ; break
-    case 'GRN': curentCurrency = '₴' ; break
-    case 'GBP': curentCurrency = '£' ; break
-    case 'PLN': curentCurrency = 'zł' ; break
-    case 'EUR': curentCurrency = '€' ; break
-  }
-
-  function createGoods() {
-    const newGoods = {
-      title: title,
-      price: price,
-      img: img,
-      id: id,
+  function createProduct() {
+    const newProduct = {
+      title: product.title,
+      price: ((product.price * multiplierCurrency[currency]).toFixed(2)),
+      img: product.img,
+      id: product.id,
     }
-    add(newGoods);
+    add(newProduct);
   }
 
   return (
     <li className='tile'>
         <article className='inner__tile'>
           <div className='tile__image'>
-            <img  src={img} alt={title} />
+            <img src={product.img} alt={product.title} />
           </div>
           <div className='tile__body'>
             <div>
-              <h3 className='tile__name'>{title}</h3>
-              <h3 className='tile__price'>{price} {curentCurrency}</h3>
+              <h3 className='tile__name'>{product.title}</h3>
+              <h3 className='tile__price'>{(product.price * multiplierCurrency[currency]).toFixed(2)} {curentCurrency}</h3>
             </div>
-            <a className='tile__btn' onClick={createGoods} >
+            <a className='tile__btn' onClick={createProduct} >
               <FAButton 
                 icon={faBasketShopping} 
-                color="#7db122" 
+                color="#7db122"
               />
             </a>
           </div>

@@ -1,9 +1,9 @@
-.goods__list {
+.product__list {
     width: 750px;
     margin: 0 auto 0 200px;
 }
 
-.goods__list ul {
+.product__list ul {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 30px;
@@ -11,7 +11,7 @@
     grid-row-gap: 30px;
 }
 
-.goods__list h1 {
+.product__list h1 {
     margin: 15px 25px ; 
     color: #635f57;
     font-family: "Open Sans";

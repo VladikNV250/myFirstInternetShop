@@ -32,17 +32,7 @@ const Hero = () => {
       setTranslate(translate + 100);
       return
     } 
-    console.log(`translate at this moment: ${translate}`)
   }
-
-// function test() {
-//   setTimeout(() => {
-//     changeBackground('right')
-//     test()
-//   }, 5000)
-// }
-
-// test()
 
   return (
     <section className='hero__section' style={{width: background.length * 100 + 'vw'}}>

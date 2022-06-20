@@ -5,11 +5,11 @@ input::-webkit-inner-spin-button {
     margin: 0; /* Taken from Stackoverflow */
 }
 
-.goodsCount {
+.productCount {
     display: flex;
 }
 
-.goodsCount__btn {
+.productCount__btn {
     color: #4cb1ca;
     font-size: 36px;
     appearance: none;
@@ -18,12 +18,12 @@ input::-webkit-inner-spin-button {
     border: 0;
 }
 
-.goodsCount__btn:hover {
+.productCount__btn:hover {
     cursor: pointer;
     color: #4398ad;
 }
 
-.goodsCount__input {
+.productCount__input {
     appearance: none;
     width: 50px;
     height: 50px;

@@ -9,7 +9,7 @@ import '../css/Navbar.css';
 import ModalWindow from "./UI/modal/ModalWindow";
 import CartList from "./CartList";
 
-const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, cart, setCart, remove, add, multiplierCurrency}) => { // a lot of props, think how to solve it
+const Navbar = ({currentCurrency, setCurrentCurrency, cart, setCart, remove, add}) => {
     const [language, setLanguage] = useState('en');
     const [visible, setVisible] = useState(false);
 
@@ -22,9 +22,9 @@ const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, c
                     value={language} 
                     onChange={setLanguage}
                     options={[
-                    {value: 'en', name: 'English'  },
-                    {value: 'ua', name: 'Ukrainian'},
-                    {value: 'pl', name: 'Poland'   },
+                      {value: 'en', name: 'English'  },
+                      {value: 'ua', name: 'Ukrainian'},
+                      {value: 'pl', name: 'Poland'   },
                     ]} 
                 /> 
                 <NavSelect
@@ -32,11 +32,11 @@ const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, c
                     value={currentCurrency} 
                     onChange={currency => setCurrentCurrency(currency)} 
                     options={[
-                    {value: 'USD', name: 'USD'},
-                    {value: 'GRN', name: 'GRN'},
-                    {value: 'GBP', name: 'GBP'},
-                    {value: 'PLN', name: 'PLN'},
-                    {value: 'EUR', name: 'EUR'},
+                      {value: 'USD', name: 'USD'},
+                      {value: 'GRN', name: 'GRN'},
+                      {value: 'GBP', name: 'GBP'},
+                      {value: 'PLN', name: 'PLN'},
+                      {value: 'EUR', name: 'EUR'},
                     ]} 
                 /> 
                 </div>
@@ -53,8 +53,8 @@ const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, c
                 </div>
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                   <Search />
-                  <FAButton icon={faCartShopping} color='#7db122' onClick={e => setVisible(true)} /> {/* cart */}
-                  <h5 className="navbar__h5">CART ({cartCount})</h5>
+                  <FAButton icon={faCartShopping} color='#7db122' onClick={() => setVisible(true)} />
+                  <h5 className="navbar__h5">CART ({cart.length})</h5>
                 </div>
             </nav>
             <ModalWindow visible={visible} setVisible={setVisible} >
@@ -62,11 +62,8 @@ const Navbar = ({currentCurrency, setCurrentCurrency, cartCount, setCartCount, c
                       cart={cart} 
                       setCart={setCart} 
                       setVisible={setVisible}
-                      cartCount={cartCount} 
-                      setCartCount={setCartCount} 
                       remove={remove}
                       add={add}
-                      multiplierCurrency={multiplierCurrency}
                       currency={currentCurrency}
                     />
             </ModalWindow>

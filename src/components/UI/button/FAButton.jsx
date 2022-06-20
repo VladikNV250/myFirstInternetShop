@@ -2,7 +2,7 @@ import React from 'react';
 import cl from './FAButton.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  
-const FAButton = ({icon, color, size = 40, iColor, onClick, value}) => {
+const FAButton = ({icon, color, size = 40, iColor, onClick = () => {}, value}) => {
 
   return (
     <button 
