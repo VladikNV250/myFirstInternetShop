@@ -6,7 +6,7 @@ import { faHeart, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { switchCurrency } from '../currency/currency';
  
-const CartItem = ({product, currency, remove, add}) => {
+const CartItem = ({product, currency, remove, add, currentLanguage}) => { //language props for the future
   const [value, setValue] = useState(1)
   let currentCurrency = switchCurrency(currency)
 

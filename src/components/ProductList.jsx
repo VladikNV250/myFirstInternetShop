@@ -1,10 +1,9 @@
 import React from 'react';
 import '../css/ProductList.css'
-import { multiplierCurrency } from '../currency/multiplierCurrency';
 import Tile from './Tile';
 
  
-const ProductList = ({title, products, currency, add}) => {
+const ProductList = ({title, products, currency, currentLanguage, add}) => {
   return (
     <section className='product__list'>
         {products.length ? <h1>{title}</h1> : null }
@@ -12,6 +11,7 @@ const ProductList = ({title, products, currency, add}) => {
             {
               products.map( (product, index) => 
               <Tile 
+                currentLanguage={currentLanguage}
                 product={product}
                 currency={currency}
                 add={add}

@@ -8,9 +8,9 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import '../css/Navbar.css';
 import ModalWindow from "./UI/modal/ModalWindow";
 import CartList from "./CartList";
+import { language } from "../language/language";
 
-const Navbar = ({currentCurrency, setCurrentCurrency, cart, setCart, remove, add}) => {
-    const [language, setLanguage] = useState('en');
+const Navbar = ({currentCurrency, setCurrentCurrency, currentLanguage , setCurrentLanguage, cart, setCart, remove, add}) => {
     const [visible, setVisible] = useState(false);
 
     return (
@@ -18,17 +18,17 @@ const Navbar = ({currentCurrency, setCurrentCurrency, cart, setCart, remove, add
             <nav className='inner__navbar_1'>
                 <div style={{display: 'flex'}}>
                 <NavSelect 
-                    name="Language:"
-                    value={language} 
-                    onChange={setLanguage}
+                    name={language[currentLanguage].language}
+                    value={currentLanguage} 
+                    onChange={setCurrentLanguage}
                     options={[
-                      {value: 'en', name: 'English'  },
-                      {value: 'ua', name: 'Ukrainian'},
-                      {value: 'pl', name: 'Poland'   },
+                      {value: 'EN', name: 'English'  },
+                      {value: 'UA', name: 'Ukrainian'},
+                      {value: 'PL', name: 'Poland'   },
                     ]} 
                 /> 
                 <NavSelect
-                    name="Currency:" 
+                    name={language[currentLanguage].currency} 
                     value={currentCurrency} 
                     onChange={currency => setCurrentCurrency(currency)} 
                     options={[
@@ -40,25 +40,28 @@ const Navbar = ({currentCurrency, setCurrentCurrency, cart, setCart, remove, add
                     ]} 
                 /> 
                 </div>
-                <ButtonList />
+                <ButtonList currentLanguage={currentLanguage} />
             </nav>
             <nav className='inner__navbar_2'>
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                   <h1 className="navbar__h1">LEO SHOP</h1>
                   <NavList 
                     list={[
-                        'HOME', 'WOMEN', 'MEN', 'OTHER', 'PURCHASE'
+                      language[currentLanguage].home, language[currentLanguage].men, 
+                      language[currentLanguage].women, language[currentLanguage].kids,
+                      language[currentLanguage].purchase
                     ]}
                   />
                 </div>
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <Search />
+                  <Search currentLanguage={currentLanguage} />
                   <FAButton icon={faCartShopping} color='#7db122' onClick={() => setVisible(true)} />
-                  <h5 className="navbar__h5">CART ({cart.length})</h5>
+                  <h5 className="navbar__h5">{language[currentLanguage].cart} ({cart.length})</h5>
                 </div>
             </nav>
             <ModalWindow visible={visible} setVisible={setVisible} >
                     <CartList 
+                      currentLanguage={currentLanguage}
                       cart={cart} 
                       setCart={setCart} 
                       setVisible={setVisible}

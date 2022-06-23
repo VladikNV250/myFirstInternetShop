@@ -5,7 +5,7 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import { multiplierCurrency } from '../currency/multiplierCurrency';
 import { switchCurrency } from '../currency/currency';
  
-const Tile = ({product, currency, add}) => {
+const Tile = ({product, currency, currentLanguage, add}) => {
   let curentCurrency = switchCurrency(currency)
 
   function createProduct() {

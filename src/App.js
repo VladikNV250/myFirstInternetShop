@@ -6,10 +6,12 @@ import { image } from './images/image';
 import SideBar from './components/SideBar';
 import ProductList from './components/ProductList';
 import _ from 'lodash';
+import { language } from './language/language';
 
 
 function App() {
   const [currentCurrency, setCurrentCurrency] = useState('USD');
+  const [currentLanguage, setCurrentLanguage]  = useState('EN')
   const [cart, setCart] = useState([]);
   const [wishList, setWishList] = useState([]);
   const [products, setProducts] = useState([
@@ -42,30 +44,35 @@ function App() {
       <Navbar 
         currentCurrency={currentCurrency} 
         setCurrentCurrency={setCurrentCurrency} 
+        currentLanguage={currentLanguage}
+        setCurrentLanguage={setCurrentLanguage}
         cart={cart}
         setCart={setCart} 
         remove={removeFromCart}
         add={addToWishList}
       />
       <Hero />
-      <SideBar />
+      <SideBar currentLanguage={currentLanguage} />
         <ProductList 
-          title="Пропоновані товари"
+          title={language[currentLanguage].offeredProducts}
           products={products}
           currency={currentCurrency}
           add={addToCart}
+          currentLanguage={currentLanguage}
         />
         <ProductList 
-          title="Улюблені товари"
+          title={language[currentLanguage].wishProducts}
           products={wishList}
           currency={currentCurrency}
           add={addToCart}
+          currentLanguage={currentLanguage}
         />
         <ProductList 
-          title="Нові товари"
+          title={language[currentLanguage].newProducts}
           products={products}
           currency={currentCurrency}
           add={addToCart}
+          currentLanguage={currentLanguage}
         />
       <footer>
         

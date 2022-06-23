@@ -23,6 +23,11 @@ input::-webkit-inner-spin-button {
     color: #4398ad;
 }
 
+.productCount__btn:disabled {
+    cursor: auto;
+    color: #7c7c7c;
+}
+
 .productCount__input {
     appearance: none;
     width: 50px;
