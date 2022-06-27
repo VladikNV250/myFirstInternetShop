@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../context/languageContext';
 import '../css/SideBar.css';
 import { image } from '../images/image';
 import { language } from '../language/language';
@@ -6,7 +7,9 @@ import SideButton from './UI/button/SideButton';
 import SideInput from './UI/input/SideInput';
 import SidePagination from './UI/pagination/SidePagination';
  
-const SideBar = ({currentLanguage}) => {
+const SideBar = () => {
+  const {currentLanguage} = useContext(LanguageContext);
+
   return (
     <aside className='sidebar' >
         <section className='sidebar__content'>
@@ -14,7 +17,7 @@ const SideBar = ({currentLanguage}) => {
             <h3>{language[currentLanguage].featuredGlasses}</h3>
               <img src={image.asimg} alt="nema" className='sidebar__img'/>
               <div className='sidebar__btn'>
-                <SideButton style={{background: '#4cb1ca'}} >Check it Out</SideButton>
+                <SideButton style={{background: '#4cb1ca'}} >{language[currentLanguage].checkItOut}</SideButton>
               </div>
           </div>
           <SidePagination />

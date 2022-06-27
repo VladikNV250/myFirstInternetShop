@@ -9,9 +9,22 @@ import '../css/Navbar.css';
 import ModalWindow from "./UI/modal/ModalWindow";
 import CartList from "./CartList";
 import { language } from "../language/language";
+import { useContext } from "react";
+import { LanguageContext } from "../context/languageContext";
+import { CurrencyContext } from "../context";
 
-const Navbar = ({currentCurrency, setCurrentCurrency, currentLanguage , setCurrentLanguage, cart, setCart, remove, add}) => {
+
+const Navbar = ({ cart, setCart, remove, add}) => {
     const [visible, setVisible] = useState(false);
+    const {currentLanguage, setCurrentLanguage} = useContext(LanguageContext)
+    const {currentCurrency, setCurrentCurrency} = useContext(CurrencyContext);
+
+
+
+    function func(target) {
+      setCurrentLanguage(target)
+      localStorage.setItem('language', target)
+    }
 
     return (
         <header>
@@ -20,7 +33,7 @@ const Navbar = ({currentCurrency, setCurrentCurrency, currentLanguage , setCurre
                 <NavSelect 
                     name={language[currentLanguage].language}
                     value={currentLanguage} 
-                    onChange={setCurrentLanguage}
+                    onChange={language => func(language)}
                     options={[
                       {value: 'EN', name: 'English'  },
                       {value: 'UA', name: 'Ukrainian'},
@@ -30,7 +43,11 @@ const Navbar = ({currentCurrency, setCurrentCurrency, currentLanguage , setCurre
                 <NavSelect
                     name={language[currentLanguage].currency} 
                     value={currentCurrency} 
-                    onChange={currency => setCurrentCurrency(currency)} 
+                    onChange={currency => {
+                      setCurrentCurrency(currency);
+                      localStorage.setItem('currency', currency);
+                      
+                    }} 
                     options={[
                       {value: 'USD', name: 'USD'},
                       {value: 'GRN', name: 'GRN'},

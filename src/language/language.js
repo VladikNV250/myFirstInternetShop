@@ -66,7 +66,7 @@ export const language = {
         'other'   : 'Dla dzieci',
         'purchase': 'Wcześniej zakupione',
         'search'  : 'Szukaj',
-        'cart'    : 'kosz',
+        'cart'    : 'Kosz',
         'offeredProducts' : 'Oferowane towary',
         'newProducts': 'Nowe Produkty',
         'wishProducts' : 'Produkty z listy życzeń',
